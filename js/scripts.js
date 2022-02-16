@@ -15,11 +15,13 @@ let pokemonList = [
         types: ['bug','poison']
     }
 ]
-  //writing the name and height of the pokemons
-for (let i=0; i < pokemonList.length; i++){
-    document.write('<p class = "pokemon-list">'+ pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ');{
-  //condicional hightliting the biggest one      
-    }if (pokemonList[i].height >=3){
-       document.write(' ' + '<span>Wow, that’s big!</span>');
-     }
-}
+    //writing the name and height of the pokemons
+    pokemonList.forEach(function(pokemon) {
+        document.write('<p class = "pokemon-list">'+ pokemon.name + ' (height: ' + pokemon.height + ') ');
+    //condicional highlighting the biggest one      
+        if (pokemon.height >=3){
+         document.write( ' ' + '<span>Wow, that’s big!</span>');
+        }
+      });
+    
+    document.write(pokemonList.forEach());
