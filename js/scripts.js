@@ -18,6 +18,7 @@ let pokemonRepository = (function () {
     ]
 
         function add(pokemon) {
+            if (typeof pokemon === 'object')
             pokemonList.push(pokemon);
         }
     
@@ -30,6 +31,10 @@ let pokemonRepository = (function () {
             getAll: getAll
         };
     })();
+
+    pokemonRepository.add(
+        {name: "Rattata", height: 1.00, types: ['normal', 'fighting']}
+      );
 
      //writing the name and height of the pokemons
     pokemonRepository.getAll().forEach(function(pokemon){
