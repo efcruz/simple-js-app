@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-    let pokemonList = [
+    let repository = [
         {
             name: "Pikachu",
             height: 1.04,
@@ -14,34 +14,58 @@ let pokemonRepository = (function () {
             name: "Beedrill",
             height: 3.03,
             types: ['bug', 'poison']
-        }
-    ]
-
+        },
+    ];
+        //add new pokemon
         function add(pokemon) {
-            if (typeof pokemon === 'object')
-            pokemonList.push(pokemon);
+          if (
+            typeof pokemon === "object" &&
+             "name" in pokemon &&
+              "height" in pokemon &&
+              "types" in pokemon
+        ) {
+          repository.push(pokemon);
+        } else {
+          console.log("pokemon is not correct");
         }
-    
+      }
+        //get all pokemons
         function getAll() {
-            return pokemonList;
+          return repository;
+       }
+
+       //unordered list of pokemons
+        function addListItem(pokemon){
+          let pokemonList = document.querySelector(".pokemon-list");
+          let listItem = document.createElement("li");
+          let button = document.createElement("button");
+
+          //Event listener - click and show details
+          button.addEventListener("click", function (event) {
+            showDetails(pokemon)
+          })
+          button.innerText = pokemon.name;
+          button.classList.add("button-class");
+          listItem.appendChild(button);
+          pokemonList.appendChild(listItem);
         }
-    
+
+        function showDetails (pokemon) {
+            console.log(pokemon)
+          }
+
         return {
             add: add,
-            getAll: getAll
+            getAll: getAll,
+            addListItem: addListItem
         };
     })();
 
-    pokemonRepository.add(
-        {name: "Rattata", height: 1.00, types: ['normal', 'fighting']}
-      );
+    //Add new pokenon here
+    pokemonRepository.add({name: "Rattata", height: 1.00, types: ["normal", "fighting"] });
 
-     //writing the name and height of the pokemons
-    pokemonRepository.getAll().forEach(function(pokemon){
-        document.write('<p class = "pokemon-list">' + pokemon.name + ' (height: ' + pokemon.height + ')'); {
-            //condicional highlighting the biggest one     
-            if (pokemon.height >= 3)
-                document.write(' ' + '<span>Wow, that’s big!</span>');
-            }
-      });
-     
+    console.log(pokemonRepository.getAll());
+
+    pokemonRepository.getAll().forEach(function (pokemon) {
+      pokemonRepository.addListItem(pokemon);
+    });
