@@ -1,37 +1,23 @@
 let pokemonRepository = (function () {
-    let repository = [
-        {
-            name: "Pikachu",
-            height: 1.04,
-            types: ['Electric']
-        },
-        {
-            name: "Pidgey",
-            height: 1.00,
-            types: ['normal', 'flying']
-        },
-        {
-            name: "Beedrill",
-            height: 3.03,
-            types: ['bug', 'poison']
-        },
-    ];
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
+
         //add new pokemon
         function add(pokemon) {
           if (
             typeof pokemon === "object" &&
              "name" in pokemon &&
-              "height" in pokemon &&
-              "types" in pokemon
+             "detailsUrl" in pokemon
+              
         ) {
-          repository.push(pokemon);
+            pokemonList.push(pokemon);
         } else {
           console.log("pokemon is not correct");
         }
       }
         //get all pokemons
         function getAll() {
-          return repository;
+          return pokemonList;
        }
 
        //unordered list of pokemons
@@ -50,22 +36,56 @@ let pokemonRepository = (function () {
           pokemonList.appendChild(listItem);
         }
 
-        function showDetails (pokemon) {
-            console.log(pokemon)
+        function showDetails (item) {
+            loadDetails(item).then(function () {
+            console.log(item)
+            });
+          }
+
+          //promise
+          function loadList() {
+            return fetch(apiUrl).then(function (response) {
+              return response.json();
+            }).then(function (json) {
+              json.results.forEach(function (item) {
+                let pokemon = {
+                  name: item.name,
+                  detailsUrl: item.url
+                };
+                add(pokemon);
+                console.log(pokemon);
+              });
+            }).catch(function (e) {
+              console.error(e);
+            })
+          }
+
+          function loadDetails(item) {
+            let url = item.detailsUrl;
+            return fetch(url).then(function (response) {
+              return response.json();
+            }).then(function (details) {
+              // Now we add the details to the item
+              item.imageUrl = details.sprites.front_default;
+              item.height = details.height;
+              item.types = details.types;
+            }).catch(function (e) {
+              console.error(e);
+            });
           }
 
         return {
             add: add,
             getAll: getAll,
-            addListItem: addListItem
+            addListItem: addListItem,
+            loadList: loadList,
+            loadDetails: loadDetails
         };
     })();
 
-    //Add new pokenon here
-    pokemonRepository.add({name: "Rattata", height: 1.00, types: ["normal", "fighting"] });
-
-    console.log(pokemonRepository.getAll());
-
-    pokemonRepository.getAll().forEach(function (pokemon) {
-      pokemonRepository.addListItem(pokemon);
+    //Getting pokemon list and details
+    pokemonRepository.loadList().then(function () {
+        pokemonRepository.getAll().forEach(function (pokemon) {
+            pokemonRepository.addListItem(pokemon);
+        });
     });
