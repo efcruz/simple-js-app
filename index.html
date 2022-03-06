@@ -14,8 +14,33 @@
     <div class="pokemon-icon-box">
       <img src="img/pokemon-icon.png" class="pokemon-icon" alt="pokemon icon">
     </div>
-    <div id="modal-container"></div>
-    <ul class="pokemon-list list-group"></ul>
+
+    <!--MODAL-->
+    <div id="detailsModal"
+          class="modal fade"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Modal title</h1>
+              </div>
+              <div class="modal-body">
+                  ...
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    <ul class="pokemon-list list-group"
+        data-toggle="modal"
+        data-target="#detailsModal">
+
+    </ul>
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
