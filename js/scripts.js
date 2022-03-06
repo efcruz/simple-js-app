@@ -34,7 +34,8 @@ let pokemonRepository = (function () {
             showDetails(pokemon)
         })
         button.innerText = pokemon.name;
-        button.classList.add("button-class");
+        button.classList.add("btn btn-primary");
+        listItem.classList.add("list-group-item");
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
     }
