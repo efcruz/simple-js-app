@@ -5,6 +5,7 @@
     --text-secondary-color: white;
     --background-primary-color: lightgray;
     --primary-font-family: 'Poppins', sans-serif;
+    --secondary-font-family: 'Open Sans', sans-serif;
     --font-size-1: 30px;
     --font-size-2: 24px;
     --font-size-3: 18px;
@@ -30,4 +31,8 @@
     list-style-type: none;
     margin: auto;
     width: 50%;
+}
+
+.navbar-brand {
+  font-family: var(--secondary-font-family);
 }
