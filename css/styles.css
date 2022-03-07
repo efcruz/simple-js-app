@@ -1,9 +1,12 @@
 :root {
-    --primary-color: #FBD700;
-    --secondary-color: ;
-    --text-primary-color: #2b2b2b;
+    --color-1: #0075BE;
+    --color-1-shade: #0A285F;
+    --color-2: #FFCC00;
+    --color-2-shade: #D5A100;
+    --color-3: #FB1B1B;
+    --text-primary-color: #000000;
     --text-secondary-color: white;
-    --background-primary-color: lightgray;
+    --background-primary-color: #DFDFDF;
     --primary-font-family: 'Poppins', sans-serif;
     --secondary-font-family: 'Open Sans', sans-serif;
     --font-size-1: 30px;
@@ -15,10 +18,15 @@
     --line-height-1: 1.6;
 }
 
+body {
+  background-color: var(--color-1);
+}
+
 .pokemon-icon-box {
     margin: 50px;
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .pokemon-icon {
@@ -26,13 +34,57 @@
     height: auto;
 }
 
-.pokemon-list {
-    text-decoration: none;
-    list-style-type: none;
-    margin: auto;
-    width: 50%;
+.navbar {
+  background-color: var(--color-1-shade);
 }
-
 .navbar-brand {
   font-family: var(--secondary-font-family);
+  color: var(--color-2);
+}
+
+.navbar-brand:hover {
+  color: var(--color-2-shade);
+}
+.list-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  grid-row-gap: 20px;
+  grid-column-gap: 60px;
+  list-style: none;
+}
+
+.btn {
+  min-width: 90%;
+  background-color: var(--color-2);
+  border-radius: 0px;
+  border: 1px solid var(--color-1-shade);
+  padding: 10px;
+  text-transform: capitalize;
+  font-family: var(--primary-font-family);
+  
+}
+
+.btn:hover {
+  background-color: var(--color-2-shade);
+}
+
+.modal-title {
+  text-transform: capitalize;
+  font-family: var(--secondary-font-family);
+}
+
+.modal-body {
+  text-transform: capitalize;
+  font-family: var(--primary-font-family);
+}
+
+.modal-body img {
+  float: right ;
+}
+
+@media (max-width: 800px) {
+  .list-group {
+  grid-template-columns: 1fr 1fr;
+  }
 }
