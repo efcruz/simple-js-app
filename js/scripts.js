@@ -98,21 +98,6 @@ let pokemonRepository = (function () {
         modalTitle.empty();
         modalBody.empty();
 
-        /*//create modal container
-        modalContainer.classList.add('is-visible');
-        // Clear all existing modal container content
-        modalContainer.innerHTML = '';*/
-
-        /*//Create modal from scratch
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
-
-        //create close button, calling the hideModal function when clicked
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal);*/
-
         // Add the new modal content
 
         //create title
@@ -134,34 +119,6 @@ let pokemonRepository = (function () {
         modalBody.append(pokemonType);
 
     }
-
-    /*// Function to hide modal
-    function hideModal() {
-        modalContainer.classList.remove('is-visible');
-    }
-    
-    //Event listener for closing modal with ESC key
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();  
-        }
-    });
-
-    //Event listener for closing modal when click outside modal
-    modalContainer.addEventListener('click', (e) => {
-        // Since this is also triggered when clicking INSIDE the modal
-        // We only want to close if the user clicks directly on the overlay
-        let target = e.target;
-        if (target === modalContainer) {
-        hideModal();
-        }
-    }); 
-
-    /*show modal when click "show more"
-    document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title', 'This is the modal content!');
-    });*/
-
 
     return {
         add: add,
