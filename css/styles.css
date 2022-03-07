@@ -84,3 +84,9 @@
   grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 400px) {
+  .list-group {
+  grid-template-columns: 1fr;
+  }
+}
