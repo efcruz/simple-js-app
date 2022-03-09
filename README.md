@@ -21,12 +21,12 @@ Rules:
 
 ## Others
 
--JavaScripts ES6. 
--External API [Pokeapi](https://pokeapi.co/api/v2/pokemon/?limit=150). 
--jQuery 3.3.1. 
--Bootstrap 4.3.1. 
--Promisse Polyfill. 
--Fetch Polyfill
+- JavaScripts ES6. 
+- External API [Pokeapi](https://pokeapi.co/api/v2/pokemon/?limit=150). 
+- jQuery 3.3.1. 
+- Bootstrap 4.3.1. 
+- Promisse Polyfill. 
+- Fetch Polyfill
 
 # GH-Pages
 [Pokédex](https://effpaulo.github.io/simple-js-app/)
