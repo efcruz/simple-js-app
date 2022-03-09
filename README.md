@@ -28,6 +28,6 @@ Bootstrap 4.3.1
 Promisse Polyfill
 Fetch Polyfill
 
-#GH-Pages
+# GH-Pages
 [Pokédex]https://effpaulo.github.io/simple-js-app/
 
