@@ -29,5 +29,5 @@ Rules:
 - Fetch Polyfill
 
 # GH-Pages
-[Pokédex](https://effpaulo.github.io/simple-js-app/)
+[Pokédex](https://efcruz.github.io/simple-js-app/)
 
