@@ -1,0 +1,19 @@
+{
+  "name": "simple-js-app",
+  "version": "1.0.0",
+  "description": "This is my first JavaScript project. It consists of a Pokédex app that will retrieve information from an external API and enables the viewing of data points in detail: after clicking in the Pokémon's name, a modal will open with a picture as well as it's height and type.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efcruz/simple-js-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efcruz/simple-js-app/issues"
+  },
+  "homepage": "https://github.com/efcruz/simple-js-app#readme"
+}
