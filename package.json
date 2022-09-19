@@ -2,9 +2,14 @@
   "name": "simple-js-app",
   "version": "1.0.0",
   "description": "This is my first JavaScript project. It consists of a Pokédex app that will retrieve information from an external API and enables the viewing of data points in detail: after clicking in the Pokémon's name, a modal will open with a picture as well as it's height and type.",
-  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel ./index.html",
+    "prebuild-dev": "shx rm -rf dist/*",
+    "build-dev": "parcel build ./index.html --no-optimize --public-url ./",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build ./index.html --public-url ./",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/efcruz/simple-js-app/issues"
   },
-  "homepage": "https://github.com/efcruz/simple-js-app#readme"
+  "homepage": "https://github.com/efcruz/simple-js-app#readme",
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0"
+  }
 }
